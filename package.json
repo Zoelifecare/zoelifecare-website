@@ -1,0 +1,7 @@
+{
+  "name": "zoelifecare-website",
+  "private": true,
+  "type": "commonjs",
+  "description": "Zoe Life Services LLC website (static HTML + one Vercel serverless function for the contact form)",
+  "engines": { "node": ">=18" }
+}

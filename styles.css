@@ -1,0 +1,116 @@
+/* ===== Original Zoe Life Services design (unchanged) ===== */
+:root{--green:#642076;--mint:#f1eaf5;--gold:#79a91a;--ink:#30223a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:150px}
+body{margin:0;font:16px/1.6 system-ui,Arial;color:var(--ink);background:#fff}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1150px;margin:auto;padding:0 24px}
+header{position:sticky;top:0;background:white;box-shadow:0 2px 12px #0001;z-index:3}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:80px}
+.logo{font-size:22px;font-weight:800;color:var(--green);letter-spacing:1px}
+.logo small{display:block;font-size:12px;letter-spacing:2px;font-weight:600;margin-top:0}
+.brand-logo{display:block;width:215px;max-width:100%;height:auto}
+.footer-logo{width:190px;background:white;border-radius:8px;padding:6px}
+.links{display:flex;gap:24px;flex-wrap:wrap}
+.btn{display:inline-block;background:var(--green);color:white;padding:13px 22px;border-radius:7px;font-weight:700;border:0;cursor:pointer}
+.btn.light{background:white;color:var(--green)}
+.hero{background:linear-gradient(110deg,#143f37ed,#276e60cf),url('https://images.unsplash.com/photo-1584515933487-779824d29309?auto=format&fit=crop&w=1600&q=80') center/cover;color:white;padding:110px 0}
+.hero h1{font-size:clamp(40px,6vw,70px);max-width:750px;line-height:1.08;margin:15px 0}
+.hero p{font-size:20px;max-width:630px}
+.eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:13px;font-weight:800;color:var(--gold)}
+section{padding:78px 0}
+h2{font-size:clamp(30px,4vw,44px);line-height:1.2;margin:8px 0 18px}
+.lead{font-size:19px;max-width:780px;color:#52645e}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:34px}
+.card{background:white;padding:28px;border-radius:15px;box-shadow:0 5px 24px #0000000d;border:1px solid #e3ebe7}
+.card h3{margin:0 0 9px;color:var(--green);font-size:21px}
+.card p{margin:0;color:#566760}
+.soft{background:#f4f8f5}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.feature{background:var(--mint);padding:42px;border-radius:20px}
+.feature li{margin:12px 0}
+.steps{counter-reset:step}
+.steps .card:before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:42px;height:42px;background:var(--mint);color:var(--green);border-radius:50%;font-weight:800;margin-bottom:15px}
+.cta{background:var(--green);color:white}
+.cta .lead{color:#e1f1e8}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+input,select,textarea{width:100%;padding:13px;margin:7px 0 16px;border:1px solid #bfcfc7;border-radius:6px;font:inherit}
+label{font-weight:600}
+footer{background:#102d28;color:#d8e8e0;padding:35px 0}
+.fine{font-size:13px;color:#73867b}
+footer .fine{color:#b7cfc2}
+@media(max-width:760px){.links{gap:10px;font-size:14px}.nav{align-items:flex-start;flex-direction:column;padding-top:14px;padding-bottom:14px}.hero{padding:75px 0}.grid,.split,.contact{grid-template-columns:1fr}section{padding:55px 0}}
+
+/* ===== Additions (functionality + accessibility; same look) ===== */
+/* Slightly darker text tones so small text meets WCAG contrast */
+.eyebrow{color:#557c10}
+.fine{color:#5f6f68}
+.btn{text-align:center;transition:filter .15s,transform .15s}
+.btn:hover{filter:brightness(1.12)}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:white;box-shadow:inset 0 0 0 2px #ffffffcc}
+.btn.ghost:hover{background:#ffffff1a}
+.btn[disabled]{opacity:.65;cursor:not-allowed}
+.links a{padding:4px 0;border-bottom:2px solid transparent}
+.links a:hover{color:var(--green);border-bottom-color:var(--gold)}
+a:not(.btn):hover{color:var(--green)}
+footer a:not(.btn):hover{color:white;text-decoration:underline}
+:focus-visible{outline:3px solid #79a91a;outline-offset:3px;border-radius:4px}
+input:focus,select:focus,textarea:focus{outline:3px solid #79a91a55;border-color:var(--green)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--green);color:white;padding:10px 16px;border-radius:6px;z-index:10}
+.skip:focus{left:12px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:10px}
+.card .icon{display:grid;place-items:center;width:52px;height:52px;border-radius:14px;background:var(--mint);color:var(--green);margin-bottom:16px}
+.card .icon svg{width:28px;height:28px}
+.notice{margin-top:30px;padding:16px 20px;border-left:4px solid var(--green);background:white;border-radius:8px;color:#30223a}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:34px;padding:26px 28px;border-radius:15px;background:var(--mint)}
+.cta-row p{margin:0;font-size:19px;font-weight:600;color:var(--green)}
+.center{text-align:center;margin-top:34px}
+.area-list{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:18px 0;list-style:none}
+.area-list li{background:white;border:1px solid #e3ebe7;border-radius:999px;padding:6px 14px;font-size:15px}
+.contact-list p{margin:10px 0}
+.contact-list a{color:var(--green);font-weight:700}
+fieldset{border:0;padding:0;margin:0 0 16px}
+legend{font-weight:600;margin-bottom:6px}
+.choices{display:flex;flex-wrap:wrap;gap:18px}
+.choices label{font-weight:500;display:flex;align-items:center;gap:8px;cursor:pointer}
+.choices input{width:auto;margin:0;accent-color:var(--green)}
+.req{color:#a3261c}
+.field-error{display:block;color:#a3261c;font-size:14px;margin:-10px 0 14px}
+[aria-invalid="true"]{border-color:#a3261c}
+.hp{position:absolute!important;left:-10000px!important;width:1px;height:1px;overflow:hidden}
+.form-status{margin-top:16px;padding:14px 16px;border-radius:8px;display:none}
+.form-status.show{display:block}
+.form-status.ok{background:#eef7e3;border:1px solid #79a91a;color:#2f4a07}
+.form-status.err{background:#fdeeee;border:1px solid #d9a3a3;color:#6d1a14}
+.form-status .btn{margin-top:10px;margin-right:8px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:34px;align-items:start}
+.foot-grid h3{color:white;font-size:16px;margin:0 0 10px}
+.foot-grid ul{list-style:none;padding:0;margin:0}
+.foot-grid li{margin:6px 0}
+.foot-bottom{border-top:1px solid #ffffff22;margin-top:26px;padding-top:16px;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+.menu-toggle{display:none;background:none;border:0;padding:8px;cursor:pointer;color:var(--green)}
+.menu-toggle svg{width:30px;height:30px;display:block}
+.header-cta{white-space:nowrap}
+/* Simple text pages (privacy, terms, 404) */
+.page{padding:60px 0 80px}
+.page h1{font-size:clamp(32px,5vw,48px);color:var(--green);margin:8px 0 10px;line-height:1.15}
+.page h2{font-size:24px;margin:34px 0 8px}
+.page p,.page li{max-width:780px}
+@media(max-width:900px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){
+  .nav{flex-direction:row;flex-wrap:wrap;align-items:center;padding-top:10px;padding-bottom:10px;min-height:70px}
+  .brand-logo{width:170px}
+  .menu-toggle{display:block}
+  .header-cta{display:none}
+  .links{display:none;width:100%;flex-direction:column;gap:0;font-size:17px;padding:6px 0 10px}
+  .links a{padding:12px 4px;border-bottom:1px solid #eee}
+  .links.open{display:flex}
+  .links .btn{margin-top:12px;border-bottom:0}
+  .hero p{font-size:18px}
+  .hero-actions .btn{flex:1 1 100%}
+  .foot-grid{grid-template-columns:1fr}
+  html{scroll-padding-top:var(--header-h,140px)}
+}
+@media(min-width:761px){.links .mobile-only{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
